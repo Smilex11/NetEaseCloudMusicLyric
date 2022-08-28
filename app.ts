@@ -41,7 +41,7 @@ class LyricResource extends Drash.Resource {
 }
 
 const server = new Drash.Server({
-    hostname: "localhost",
+    hostname: "",
     port: 1447,
     protocol: "http",
     resources: [HomeResource, LyricResource],
