@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as Drash from "https://deno.land/x/drash@v2.7.0/mod.ts";
 import {start} from './common.js';
 
@@ -33,9 +32,8 @@ class LyricResource extends Drash.Resource {
                 },
                 body: start(songId),
             })
-            return response.json({
-                lryic: await lyricResp.json(),
-            })
+            let lyricRespJson = await lyricResp.json();
+            return response.send<string>('text/plain; charset=utf8', lyricRespJson.lrc.lyric);
         }
     }
 }
